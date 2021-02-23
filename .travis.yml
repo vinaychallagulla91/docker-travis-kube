@@ -13,10 +13,10 @@ before_script:
 script:
 # Publish Docker Image to Docker Hub
 - docker images vinaychallagulla91/welcome 
-- if [ "$TRAVIS_BRANCH" == "master" ]; then
+#- if [ "$TRAVIS_BRANCH" == "master" ]; then
   docker login  --username="$DOCKER_USER" --password="$DOCKER_PASS";
   docker push vinaychallagulla91/welcome;
-  fi
+#  fi
 
 after_script:
 # Install Kubernetes
@@ -40,8 +40,8 @@ after_script:
 - sleep 20
 - kubectl get po --namespace kube-system
 # Deploy Helm Charts
-- cd helm-travis
-- helm install . --name my-first-helm-chart
-- helm list
+#- cd helm-travis
+#- helm install . --name my-first-helm-chart
+#- helm list
 # Print the HTML File
-- ip=$(kubectl get service | grep myfirst-service | awk '{print $3}'); curl http://$ip:80
+#- ip=$(kubectl get service | grep myfirst-service | awk '{print $3}'); curl http://$ip:80
