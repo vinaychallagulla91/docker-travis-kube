@@ -13,9 +13,9 @@ before_script:
 script:
 # Publish Docker Image to Docker Hub
 - docker images vinaychallagulla91/welcome 
-#- if [ "$TRAVIS_BRANCH" == "master" ]; then
-  docker login  --username="$DOCKER_USER" --password="$DOCKER_PASS";
-  docker push vinaychallagulla91/welcome;
+# - if [ "$TRAVIS_BRANCH" == "master" ]; then
+- docker login  --username="$DOCKER_USER" --password="$DOCKER_PASS";
+- docker push vinaychallagulla91/welcome;
 #  fi
 
 after_script:
